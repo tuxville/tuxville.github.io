@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Code</title>
+	<style type="text/css">
+		body {
+			background: #000;
+			color: #0d0;
+			font-family: Source Code Pro;
+			font-size: 16pt;
+			overflow: hidden;
+			word-wrap: break-word;
+		}
+		#genCode {
+			border: 1px solid #0f0;
+			background: #000;
+			color: #0f0;
+			font-size: 12pt;
+			padding: 8px 12px;
+			position: fixed;
+			top: 20px;
+			left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="code"></div>
+	<script type="text/javascript">
+		var digit,
+		maxDigits = 5000,
+		randomize = function(){
+			return Math.floor(Math.random() + 0.5);
+		},
+		codeArea = document.getElementById("code"),
+		generate = function(e) {
+			if (e.keyCode == "103") {
+        // replace old result with one digit
+        codeArea.innerHTML = randomize();
+        // then generate the rest of the digits
+        for (var i = 1; i < maxDigits; ++i) {
+        	digit = randomize();
+        	codeArea.innerHTML += digit;
+        }
+    }
+};
+window.addEventListener("keypress", generate);
+</script>
+</body>
+</html>
